@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      
+      <p class="navBar">
+
+        <!--link using router concept-->
+        <router-link to="/" style="color: white">Home</router-link>
+        <router-link to="/fitness" style="color: white">Programs</router-link>
+        <router-link to="/login" style="color: white">Login</router-link>
+        <router-link to="/about" style="color: white">About</router-link>
+        <router-link to="/contact" style="color: white">Contact</router-link>
+        <router-link to="/search" style="color: white">Search</router-link>
+      </p>
+      <div class="center">
+        <button @click="show = !show" style="width:20%; font-size: 30px;">Buy fintess product</button>
+      </div>
+      
+      <!--Implementation of enter/leave & list transitions -->
+        <Transition name="fade" >
+          <p v-if="show" style="text-align: center; font-size: 30px; color: red;">Fitness products coming soon!</p>
+        </Transition>
+
+      <!--Place to show the content when link is clicked-->
+      <!--and implementation of props concept-->
+      <router-view homemessage="Welcome to fitness world"> </router-view>
+      
+      <!--implementation of mixin in the mycomp1 component-->
+      <my-comp1></my-comp1>
+     
+    
+      <footer class="contactdetails"
+      style="border: solid 1px #333; text-align: left; margin-top: 4em;">
+      
+          <p style="color: red; font-size: 25px">
+            Address:
+            <span style="color: black"
+              >123 Street, Suburb, State, Post Code</span
+            >
+          </p>
+          <p style="color: red; font-size: 25px">Phone: <span style="color: black"
+            >112345678</spna></p>
+          <p style="color: red; font-size: 25px">Email: <a href="mailto:enquiry@abc.com.au"
+            >enquiry@abc.com.au</a></p>
+            
+        
+      </footer>
+    </div>
+
+    <!--Home component template-->
+    <script type="text/x-template" id="home-template">
+      <div class="homepage">
+        <!--Passing props-->
+        <h1>{{homemessage}}</h1>
+        <img id="homeimage" src="/Images/PT.jpeg" />
+        <p>
+          This page will contain most of the functionality where users will be
+          able to navigate to different components such as login page, search
+          box, contact page etc. This page will also contain dynamic videos &
+          images to share information about health and fitness to any users who
+          visit the site.
+        </p>
+
+        <p>
+          This page will contain most of the functionality where users will be
+          able to navigate to different components such as login page, search
+          box, contact page etc. This page will also contain dynamic videos &
+          images to share information about health and fitness to any users who
+          visit the site.
+        </p>
+        <iframe
+          src="https://www.youtube.com/embed/IwFPIfrwaII"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+        <!--Slot implementation-->
+        <slot></slot>
+      </div>
+    </script>
+
+    <!--Progam component template-->
+    <script type="text/x-template" id="program-template">
+        <div class="program">
+          <h1>Keep calm and work hard</h1>
+          <img src="/Images/strength.webp">
+          <h4> Our Fitness Programs </h4>
+          <ul id="programs">
+            <!--List rendering-->
+            <li
+              v-for="program in programs"
+              :key="program.value"
+            >
+            {{program.value}}
+            </li>
+          </ul>
+
+          <section class="weightloss" style="padding-bottom:500px;">
+            <h4> Weight Loss </h4>
+            <p style="font-size: 30px; float: left; width: 60%;">
+              <span style="color: red; font-size: 30px;">Let's burn some fat!</span><br>
+              Maintaining a regular exercise routine and proper nutrition plan can be
+              daunting, which can make the first steps of your weight loss journey even
+              more overwhelming. Therefore, my mission is for my clients to feel at ease
+              while they go through their whole journey and that they are continuously
+              pushing to new limits with all the support they need.
+            </p>
+            <img src="/Images/weightloss.webp" style="float:right; width: 40%; height: 400px;">
+          </section>
+
+          <section class="nutrionaladvice" style="padding-bottom:600px;">
+            <h4> Nutritional Advice </h4>
+            <p style="font-size: 30px; float: left; width: 60%;">
+              <span style="color: red; font-size: 30px;">Let's Eat & Live Healthy For Life!</span><br>
+              Exercise is great to have as regular routine but when working towards any fitness goal,
+              nutrition is just as important. Optimum nutrition is essential for normal growth and
+              physical & cognitive development. I can help you to maintain healthy lifestyle by providing
+              all the essential nutritional advice on different food groups.
+            </p>
+            <img src="/Images/nutrition.png" style="float:right; width: 40%; height: 600px;">
+          </section>
+
+          <section class="strength" style="padding-bottom:600px;">
+            <h4> Strength Training </h4>
+            <p style="font-size: 30px; float: left; width: 60%">
+              <span style="color: red; font-size: 30px">Let's burn some fat!</span
+              ><br />
+              At some point, you might feel that your strength is not progressed as
+              required which might be due to lack of strategic planning in your
+              programming parameters such as frequency, intensity, volume & exercise
+              selection. Your tailored strength program will follow fundamental
+              principles of strength training and will ensure gradual progress in
+              overall load, complexity of movements and strength capacity. To ensure
+              strategic progression & accountability, I track your progress through your
+              exercise performance & fitness testing on a weekly to monthly basis.
+            </p>
+            <img src="/Images/strength1.jpeg" style="float:right; width: 40%; height: 600px;">
+          </section>
+
+      </div>
+    </script>
+
+    <!--Login component template-->
+    <script type="text/x-template" id="login-template">
+      <div class="login">
+        <h1>Create or Login to your fitness profile here!</h1>
+        <form id="form">
+          <div class="imgcontainer">
+            <img src="/Images/loginLogo.jpeg" alt="Avatar" class="avatar" style="width: 300px;" />
+          </div>
+
+            <label for="uname" style="font-size:25px;"><b>Username</b></label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required
+            />
+
+            <label for="psw" style="font-size:25px;"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required
+            />
+
+            <label for="usertype" style="font-size:25px;"><b>Select your account type</b></label>
+            <select>
+              <!--List rendering-->
+            <option value="usertype"
+            v-for="user in users"
+            :key="user.id">
+            {{user.value}}
+            </option>
+        </select>
+
+            <button type="submit">Login</button>
+            <button type="submit">Signup</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"/>
+              Remember me
+            </label>
+
+          <div class="container" style="background-color: #f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
+    </script>
+
+    <!--About component template-->
+    <script type="text/x-template" id="about-template">
+      <div class="about">
+        <!--componenet registration-->
+        <globalcomponent> Health is wealth!</globalcomponent>
+        <div>
+        <img src="/Images/about.jpeg" style="width:50%; height: 350px; margin-left: 400px;">
+        <p style="font-size: 30px; width: 60%; margin-left:400px; ">
+          This website will help you to find a personal trainer near you who would
+          help you to achieve your fitness goals in an effective manner. Personal
+          trainers you find here are all professionally registered and experienced.
+          Also you will find lots of resources on health and fintess that will help
+          you to achieve your fitness goals.
+        </p>
+        <iframe style="width: 100%;"
+        width="560" 
+        height="500" 
+        src="https://www.youtube.com/embed/GbxUWBG31Oo" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="contact-template">
+      <div class="contact">
+        <h1>Keep your body fit and strong!</h1>
+
+          <!--form input binding using v-model-->
+        <form>
+        <h4> Send us a message and we will get back to you within 48 hrs</h4>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" v-model="firstname" placeholder="Your first name..">
+
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" v-model="lastname" placeholder="Your last name..">
+
+          <label for="email">Email</label>
+          <input type="text" id="email" v-model="email" placeholder="Email">
+
+
+          <label for="country">Country</label>
+
+          <!--list rendering-->
+          <select id="country" name="country">
+            <option v-for="country in countries"
+                    :key="country.id">
+            {{country.value}}
+            </option>
+          </select>
+
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </script>
+
+    <!--Search component template-->
+    <script type="text/x-template" id="search-template">
+      <div class="search">
+        <h1>Personal trainer just a click away!</h1>
+        <form class="searchform">
+          <h3>Find a personal trainer near you </h3>
+          <input type="text" placeholder="City or post code..." name="Search" />
+          <button type="submit">Search Now</button>
+        </form>
+      </div>
+    </script>
+
+    <script src="/Code/script.js"></script>
+  </body>
+</html>

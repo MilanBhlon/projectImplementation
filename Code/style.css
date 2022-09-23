@@ -1,0 +1,217 @@
+  
+  /* Class & style binding */
+  .globalcomponent {
+    display: block;
+  }
+  body {
+    background-color:white;
+    padding: 30px;
+  }
+  .fade-enter-active {
+    animation: bounce-in 0.5s;
+  }
+  .fade-leave-active {
+    animation: bounce-in 0.5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .center {
+    text-align: center;
+  }
+  .mixinbutton {
+    text-align: center;
+  }
+
+  .homepage {
+    display:inline-flexbox;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .homepage > p{
+      float: left;
+      font-size: 30px;
+      background-color: white;
+      width: 45%;
+      padding: 5px;
+
+    }
+    .homepage > img{
+      float: right;
+      width: 50%;
+      height: 450px;
+      padding: 5px;
+    }
+
+    .homepage > iframe {
+      width: 50%;
+      height: 500px;
+      padding: 20px;
+    }
+
+    h1 {
+      width: 100%;
+      text-align: center;
+      color: black
+    }
+    h4 {
+      font-size: 30px;
+    }
+    .navBar {
+      width: 100%;
+      text-align: center;
+      background-color: #333;
+      padding: 4px;
+      font-size: 30px;
+    }
+
+    .program > img {
+      width: 70%;
+      height: 350px;
+      padding-left: 200px;
+
+    }
+
+    .weigthloss {
+      display: block;
+    }
+  form {
+    width: 50%;
+    padding: 20px;
+    margin-left: 420px;
+    margin-top: 100px;
+    background-color:white;
+    border: solid 2px #333;
+
+  }
+
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: green;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  align-items: center;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 600px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 25px;
+}
+
+input[type=submit] {
+  background-color: green;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+input[type=submit]:hover {
+  background-color: green;
+}
+
+.container-contact form {
+  border-radius: 5px;
+  background-color: green;
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  
+}
+.contactdetails {
+  float: none;
+  width: 100%;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.searchform {
+  padding: 30px;
+}
+form.searchform input[type=text] {
+  padding: 10px;
+  font-size: 25px;
+  border: 1px solid grey;
+  float: left;
+  width: 100%;
+  background: #f1f1f1;
+}
+
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
